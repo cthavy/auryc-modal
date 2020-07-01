@@ -21,6 +21,7 @@
     <div class="feedback feedback-rating">
       <div class="nps-rating-text">How likely are you to recommend Cole Haan to a friend or colleague? <span style="color: #db2d43">*</span></div>
       <div class="nps-rating">
+        <!-- add click events to make active -->
         <div class="rating">0</div>
         <div class="rating">1</div>
         <div class="rating">2</div>
@@ -39,8 +40,24 @@
       </div>
     </div>
     <div class="feedback feedback-category">
-      <div class="category-text">Please choose a category you would like to leave feedback about.</div>
-      <div></div>
+      <div>
+        <div class="category-text">Please choose a category you would like to leave feedback about.</div>
+        <!-- use different icon -->
+        <select name="categories" id="categories" onchange="changeCategory()">
+          <option value="">Choose...</option>
+          <option value="website">Our Website</option>
+          <option value="products">Our Products</option>
+          <option value="locations">Our Retail Locations</option>
+          <option value="general">Cole Haan, Generally</option>
+        </select>
+      </div>
+      <div id="website" class="expand website"></div>
+      <div id="products" class="expand products"></div>
+      <div id="locations" class="expand locations"></div>
+      <div id="general" class="expand general">
+        <div class="category-text">Tell us what you think.</div>
+        <textarea rows="2" placeholder="Your answer"></textarea>
+      </div>
     </div>
     <div class="submit">Submit</div>
     <div class="sponsor">
