@@ -7,13 +7,12 @@
 
 <body>
 <div>website in background</div>
-<div>feedback</div>
 
-<div id="auryc-modal-container">
+<div id="auryc-modal-container"></div>
   <div class="overlay"></div>
   <div class="modal">
     <!-- replace X with icon -->
-    <div class="close">X</div> 
+    <div class="close">X</div>
     <div class="title">
       <img class="logo" src="https://www.colehaan.com/on/demandware.static/-/Sites-ColeHaan_US-Library/en_US/dw8281b093/images/20190131/logo.png"/>
       <div class="required-fields"><span style="color: #db2d43">*</span> Required Fields</div>
@@ -21,18 +20,17 @@
     <div class="feedback feedback-rating">
       <div class="nps-rating-text">How likely are you to recommend Cole Haan to a friend or colleague? <span style="color: #db2d43">*</span></div>
       <div class="nps-rating">
-        <!-- add click events to make active -->
-        <div class="rating">0</div>
-        <div class="rating">1</div>
-        <div class="rating">2</div>
-        <div class="rating">3</div>
-        <div class="rating">4</div>
-        <div class="rating">5</div>
-        <div class="rating">6</div>
-        <div class="rating">7</div>
-        <div class="rating">8</div>
-        <div class="rating">9</div>
-        <div class="rating">10</div>
+        <div class="rating" data-val=0 onclick="rate(this)">0</div>
+        <div class="rating" data-val=1 onclick="rate(this)">1</div>
+        <div class="rating" data-val=2 onclick="rate(this)">2</div>
+        <div class="rating" data-val=3 onclick="rate(this)">3</div>
+        <div class="rating" data-val=4 onclick="rate(this)">4</div>
+        <div class="rating" data-val=5 onclick="rate(this)">5</div>
+        <div class="rating" data-val=6 onclick="rate(this)">6</div>
+        <div class="rating" data-val=7 onclick="rate(this)">7</div>
+        <div class="rating" data-val=8 onclick="rate(this)">8</div>
+        <div class="rating" data-val=9 onclick="rate(this)">9</div>
+        <div class="rating" data-val=10 onclick="rate(this)">10</div>
       </div>
       <div class="nps-rating-label">
         <span>Not at all likely</span>
@@ -43,7 +41,7 @@
       <div>
         <div class="category-text">Please choose a category you would like to leave feedback about.</div>
         <!-- use different icon -->
-        <select name="categories" id="categories" onchange="changeCategory()">
+        <select name="categories" class="categories" id="categories" onchange="changeCategory()">
           <option value="">Choose...</option>
           <option value="website">Our Website</option>
           <option value="products">Our Products</option>
@@ -51,12 +49,60 @@
           <option value="general">Cole Haan, Generally</option>
         </select>
       </div>
-      <div id="website" class="expand website"></div>
-      <div id="products" class="expand products"></div>
-      <div id="locations" class="expand locations"></div>
+      <div id="website" class="expand website">
+        <div class="category-text">What was your goal for todays visit to ColeHaan.com?</div>
+        <select name="categories" class="categories">
+          <option>Browse new arrivals</option>
+          <option>Find a specific style</option>
+          <option>Find new products</option>
+          <option>Compare products</option>
+          <option>Browse a sale item</option>
+        </select>
+        <div class="category-text">How easy was it to accomplish that goal?</div>
+        <div>
+          <div class="radio-select">
+            <input type="radio" name="difficulty" value="difficult">
+            <label>Difficult</label>
+          </div>
+          <div class="radio-select">
+            <input type="radio" name="difficulty" value="average">
+            <label>Not Difficult nor Easy</label>
+          </div>
+         <div class="radio-select">
+          <input type="radio" name="difficulty" value="easy">
+          <label>Easy</label>
+         </div>
+        </div>
+        <div class="category-text">Please share your feedback.</div>
+        <textarea id="ta-feed" rows="2" placeholder="Your answer" maxlength="1000"></textarea>
+        <div class="counter" id="feed-counter"><span id="current">1000</span> characters left</div>
+      </div>
+      <div id="products" class="expand products">
+        <div class="category-text">What category would you like to leave feedback about?</div>
+        <select name="categories" class="categories">
+          <option>Choose...</option>
+          <option>Footwear</option>
+          <option>Outerwear</option>
+          <option>Bags</option>
+          <option>Other</option>
+        </select>
+        <div class="category-text">Tell us what you think.</div>
+        <textarea class="ta-gen" rows="2" placeholder="Your answer" maxlength="1000"></textarea>
+        <div id="gen-counter" class="counter gen-counter"><span id="current">1000</span> characters left</div>
+      </div>
+      <div id="locations" class="expand locations">
+        <div class="category-text">Which store location would you like to leave feedback about?</div>
+        <textarea id="ta-loc" rows="2" placeholder="Your answer" maxlength="1000"></textarea>
+        <div class="counter" id="loc-counter"><span id="current">1000</span> characters left</div>
+        <div class="spacing"></div>
+        <div class="category-text">Tell us what you think.</div>
+        <textarea class="ta-gen" rows="2" placeholder="Your answer" maxlength="1000"></textarea>
+        <div id="gen-counter" class="counter gen-counter"><span id="current">1000</span> characters left</div>
+      </div>
       <div id="general" class="expand general">
         <div class="category-text">Tell us what you think.</div>
-        <textarea rows="2" placeholder="Your answer"></textarea>
+        <textarea class="ta-gen" rows="2" placeholder="Your answer" maxlength="1000"></textarea>
+        <div id="gen-counter" class="counter gen-counter"><span id="current">1000</span> characters left</div>
       </div>
     </div>
     <div class="submit">Submit</div>
